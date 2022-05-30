@@ -10,7 +10,7 @@
 
 Jest 是一个专注于简易性的 JavaScript 测试框架。一个其独特的功能是可以为测试生成快照 (snapshot)，以提供另一种验证应用单元的方法。
 
-[Jest 官网](https://jestjs.io/zh-Hans/)
+[Jest 官网](https://jestjs.io/)
 
 ### Mocha
 
@@ -94,7 +94,7 @@ module.exports = {
 };
 ```
 
-## 使用 Typescript
+### 4.使用 Typescript
 
 **通过 babel 来支持 Typescript**
 
@@ -116,7 +116,7 @@ module.exports = {
 
 不过，将 TypeScript 和 Babel 一起使用时有一些 注意事项 。由于 Babel 对 Typescript 的支持是通过代码转换（Transpilation）实现的，而 Jest 在运行时并不会对你的测试用例做类型检查。 如果你需要此功能，可以使用 ts-jest ，或者单独（或作为构建流程的一部分）直接运行 TypeScript 编译器 tsc 。
 
-### 使用 ts-jest
+**使用 ts-jest**
 
 ts-jest is a TypeScript preprocessor with source map support for Jest that lets you use Jest to test projects written in TypeScript.
 
@@ -126,7 +126,7 @@ ts-jest is a TypeScript preprocessor with source map support for Jest that lets 
 npm install --save-dev ts-jest @types/jest
 ```
 
-### 生成配置文件
+### 5.生成配置文件
 
 Jest 将根据你的项目提出一系列问题，并且将创建一个基础配置文件。文件中的每一项都配有简短的说明：
 
@@ -135,3 +135,20 @@ npx jest --init
 ```
 
 如果选择 ts 需要安装 ts-node 这个包
+
+```javascript
+/*
+ * For a detailed explanation regarding each configuration property and type check, visit:
+ * https://jestjs.io/docs/configuration
+ */
+export default {
+  // 忽略执行测试文件目录
+  testPathIgnorePatterns: [
+    "/node_modules/", "/getting-start/"
+  ],
+  // 识别 alias
+  moduleNameMapper: {
+    "^/@/(.*)$": "<rootDir>/src/$1"
+  }
+}
+```
