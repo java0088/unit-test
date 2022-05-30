@@ -125,3 +125,13 @@ ts-jest is a TypeScript preprocessor with source map support for Jest that lets 
 ```
 npm install --save-dev ts-jest @types/jest
 ```
+
+### 生成配置文件
+
+Jest 将根据你的项目提出一系列问题，并且将创建一个基础配置文件。文件中的每一项都配有简短的说明：
+
+```
+npx jest --init
+```
+
+如果选择 ts 需要安装 ts-node 这个包
