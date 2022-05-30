@@ -152,3 +152,40 @@ export default {
   }
 }
 ```
+
+## Vue Test Utils
+
+1. 安装依赖
+```
+npm install -D @vue/test-utils@next @vue/vue3-jest@28
+```
+
+2. 配置babel.config.js，这里安装jest环境的时候配置过
+
+```javascript
+module.exports = {
+  presets: [['@babel/preset-env', { targets: { node: 'current' } }], '@babel/preset-typescript']
+}
+```
+
+3. 配置jest.config.ts
+
+```javascript
+export default {
+  preset: 'ts-jest',
+  globals: {},
+  testEnvironment: 'jsdom', // jest@28.x 以上需要手动安装 jest-environment-jsdom
+  transform: {
+    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\js$': 'babel-jest'
+  },
+  // 忽略执行测试文件目录
+  testPathIgnorePatterns: [
+    "/getting-start/"
+  ],
+  // 识别 alias
+  moduleNameMapper: {
+    "^/@/(.*)$": "<rootDir>/src/$1"
+  }
+}
+```
